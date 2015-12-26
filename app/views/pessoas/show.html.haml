@@ -1,0 +1,141 @@
+- model_class = Pessoa
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.titleize
+
+%p
+  %strong= model_class.human_attribute_name(:nome) + ':'
+  %br
+  = @pessoa.nome
+%p
+  %strong= model_class.human_attribute_name(:situacao) + ':'
+  %br
+  = @pessoa.situacao
+%p
+  %strong= model_class.human_attribute_name(:tipo) + ':'
+  %br
+  = @pessoa.tipo
+%p
+  %strong= model_class.human_attribute_name(:situação_inativo) + ':'
+  %br
+  = @pessoa.situação_inativo
+%p
+  %strong= model_class.human_attribute_name(:sexo) + ':'
+  %br
+  = @pessoa.sexo
+%p
+  %strong= model_class.human_attribute_name(:data_nascimento) + ':'
+  %br
+  = @pessoa.data_nascimento
+%p
+  %strong= model_class.human_attribute_name(:naturalidade) + ':'
+  %br
+  = @pessoa.naturalidade
+%p
+  %strong= model_class.human_attribute_name(:nacionalidade) + ':'
+  %br
+  = @pessoa.nacionalidade
+%p
+  %strong= model_class.human_attribute_name(:estado_civil) + ':'
+  %br
+  = @pessoa.estado_civil
+%p
+  %strong= model_class.human_attribute_name(:profissao) + ':'
+  %br
+  = @pessoa.profissao
+%p
+  %strong= model_class.human_attribute_name(:identidade) + ':'
+  %br
+  = @pessoa.identidade
+%p
+  %strong= model_class.human_attribute_name(:cpf) + ':'
+  %br
+  = @pessoa.cpf
+%p
+  %strong= model_class.human_attribute_name(:escolaridade) + ':'
+  %br
+  = @pessoa.escolaridade
+%p
+  %strong= model_class.human_attribute_name(:endereco) + ':'
+  %br
+  = @pessoa.endereco
+%p
+  %strong= model_class.human_attribute_name(:numero) + ':'
+  %br
+  = @pessoa.numero
+%p
+  %strong= model_class.human_attribute_name(:complemento) + ':'
+  %br
+  = @pessoa.complemento
+%p
+  %strong= model_class.human_attribute_name(:bairro) + ':'
+  %br
+  = @pessoa.bairro
+%p
+  %strong= model_class.human_attribute_name(:cep) + ':'
+  %br
+  = @pessoa.cep
+%p
+  %strong= model_class.human_attribute_name(:cidade) + ':'
+  %br
+  = @pessoa.cidade
+%p
+  %strong= model_class.human_attribute_name(:uf) + ':'
+  %br
+  = @pessoa.uf
+%p
+  %strong= model_class.human_attribute_name(:tel_residencial) + ':'
+  %br
+  = @pessoa.tel_residencial
+%p
+  %strong= model_class.human_attribute_name(:tel_comercial) + ':'
+  %br
+  = @pessoa.tel_comercial
+%p
+  %strong= model_class.human_attribute_name(:tel_celular) + ':'
+  %br
+  = @pessoa.tel_celular
+%p
+  %strong= model_class.human_attribute_name(:email) + ':'
+  %br
+  = @pessoa.email
+%p
+  %strong= model_class.human_attribute_name(:pai) + ':'
+  %br
+  = @pessoa.pai
+%p
+  %strong= model_class.human_attribute_name(:mae) + ':'
+  %br
+  = @pessoa.mae
+%p
+  %strong= model_class.human_attribute_name(:conjuge) + ':'
+  %br
+  = @pessoa.conjuge
+%p
+  %strong= model_class.human_attribute_name(:data_casamento) + ':'
+  %br
+  = @pessoa.data_casamento
+%p
+  %strong= model_class.human_attribute_name(:data_batismo) + ':'
+  %br
+  = @pessoa.data_batismo
+%p
+  %strong= model_class.human_attribute_name(:batismo_local) + ':'
+  %br
+  = @pessoa.batismo_local
+%p
+  %strong= model_class.human_attribute_name(:recebimento_por) + ':'
+  %br
+  = @pessoa.recebimento_por
+%p
+  %strong= model_class.human_attribute_name(:data_recebimento) + ':'
+  %br
+  = @pessoa.data_recebimento
+%p
+  %strong= model_class.human_attribute_name(:obs) + ':'
+  %br
+  = @pessoa.obs
+
+
+= link_to t('.back', :default => t("helpers.links.back")), pessoas_path, :class => 'btn btn-default'
+= link_to t('.edit', :default => t("helpers.links.edit")), edit_pessoa_path(@pessoa), :class => 'btn btn-default'
+= link_to t('.destroy', :default => t("helpers.links.destroy")), pessoa_path(@pessoa), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'

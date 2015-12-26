@@ -1,0 +1,6 @@
+console.log("<%= @endereco[:address] %>");
+console.log("<%= @endereco[:state] %>");
+$("#pessoa_endereco").val("<%= @endereco[:address] %>");
+$("#pessoa_bairro").val("<%= @endereco[:neighborhood] %>");
+$("#pessoa_cidade").val("<%= @endereco[:city] %>");
+$("#pessoa_uf").val("<%= @endereco[:state] %>");

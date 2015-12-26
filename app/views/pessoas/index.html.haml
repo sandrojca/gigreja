@@ -1,0 +1,39 @@
+- model_class = Pessoa
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:nome)
+      %th= model_class.human_attribute_name(:situacao)
+      %th= model_class.human_attribute_name(:tipo)
+      %th= model_class.human_attribute_name(:sexo)
+      %th= model_class.human_attribute_name(:data_nascimento)
+      %th= model_class.human_attribute_name(:estado_civil)
+      %th= model_class.human_attribute_name(:bairro)
+      %th= model_class.human_attribute_name(:cidade)
+      %th= model_class.human_attribute_name(:uf)
+      %th= model_class.human_attribute_name(:tel_residencial)
+      %th= model_class.human_attribute_name(:tel_comercial)
+      %th= model_class.human_attribute_name(:tel_celular)
+      %th=t '.actions', :default => t("helpers.actions")
+  %tbody
+    - @pessoas.each do |pessoa|
+      %tr
+        %td= pessoa.nome
+        %td= pessoa.situacao
+        %td= pessoa.tipo
+        %td= pessoa.sexo
+        %td= pessoa.data_nascimento
+        %td= pessoa.estado_civil
+        %td= pessoa.bairro
+        %td= pessoa.cidade
+        %td= pessoa.uf
+        %td= pessoa.tel_residencial
+        %td= pessoa.tel_comercial
+        %td= pessoa.tel_celular
+        %td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_pessoa_path(pessoa), :class => 'btn btn-default btn-xs'
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), pessoa_path(pessoa), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
+
+= link_to t('.new', :default => t("helpers.links.new")), new_pessoa_path, :class => 'btn btn-primary'

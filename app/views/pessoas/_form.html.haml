@@ -1,0 +1,91 @@
+= simple_form_for @pessoa, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :nome
+  = f.error_span :nome
+  = f.input :situacao, collection: Pessoa::Situacao.all
+  = f.error_span :situacao
+  = f.input :tipo, collection: Pessoa::Tipo_membro.all
+  = f.error_span :tipo
+  = f.input :sexo, collection: ["Masculino", "Feminino"]
+  = f.error_span :sexo
+  = f.input :data_nascimento, :as => :string, :input_html => {:class => 'datepicker col-span-3'} , :id => "datepicker"
+  = f.error_span :data_nascimento, maxlength: 10, required: true
+  = f.input :naturalidade
+  = f.error_span :naturalidade
+  = f.input :nacionalidade
+  = f.error_span :nacionalidade
+  = f.input :estado_civil, collection: ["Solteiro(a)", "Casado(a)"]
+  = f.error_span :estado_civil
+  = f.input :profissao
+  = f.error_span :profissao
+  = f.input :identidade
+  = f.error_span :identidade
+  = f.input :cpf
+  = f.error_span :cpf
+  = f.input :escolaridade
+  = f.error_span :escolaridade
+  = f.input :cep
+  = f.error_span :cep
+  = f.input :endereco
+  = f.error_span :endereco
+  = f.input :numero
+  = f.error_span :numero
+  = f.input :complemento
+  = f.error_span :complemento
+  = f.input :bairro
+  = f.error_span :bairro
+  = f.input :cidade
+  = f.error_span :cidade
+  = f.input :uf
+  = f.error_span :uf
+  = f.input :tel_residencial
+  = f.error_span :tel_residencial
+  = f.input :tel_comercial
+  = f.error_span :tel_comercial
+  = f.input :tel_celular
+  = f.error_span :tel_celular
+  = f.input :email
+  = f.error_span :email
+  = f.input :pai
+  = f.error_span :pai
+  = f.input :mae
+  = f.error_span :mae
+  = f.input :conjuge
+  = f.error_span :conjuge
+  = f.input :data_casamento, :as => :string, :input_html => {:class => 'datepicker col-span-3'} , :id => "datepicker"
+  = f.error_span :data_casamento
+  = f.input :data_batismo, :as => :string, :input_html => {:class => 'datepicker col-span-3'} , :id => "datepicker"
+  = f.error_span :data_batismo
+  = f.input :batismo_local
+  = f.error_span :batismo_local
+  = f.input :recebimento_por
+  = f.error_span :recebimento_por
+  = f.input :data_recebimento, :as => :string, :input_html => {:class => 'datepicker col-span-3'} , :id => "datepicker"
+  = f.error_span :data_recebimento
+  = f.input :obs
+  = f.error_span :obs
+  = f.button :submit, :class => 'btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), pessoas_path, :class => 'btn btn-default'
+
+  :javascript
+    Inputmask({ mask: "999.999.999-99"}).mask(document.querySelectorAll("#pessoa_cpf"));
+    Inputmask({ mask: "(99) 9999-9999"}).mask(document.querySelectorAll("#pessoa_tel_residencial"));
+    Inputmask({ mask: "(99) 99999-9999"}).mask(document.querySelectorAll("#pessoa_tel_comercial"));
+    Inputmask({ mask: "(99) 99999-9999"}).mask(document.querySelectorAll("#pessoa_tel_celular"));
+    Inputmask({ mask: "99999-999"}).mask(document.querySelectorAll("#pessoa_cep"));
+
+
+    $('.datepicker').datepicker({
+          format: "dd-mm-yyyy",
+          todayHighlight: true,
+          autoclose: true
+      }); ;
+      
+
+  :javascript
+  $("#pessoa_cep").change(function(){
+    console.log("Page-specific JavaScript on the home/index page.");
+    var cep = $("#pessoa_cep").val();
+    $.get("/busca_cep/" + cep);
+
+  })    
+  
